@@ -7,6 +7,8 @@ import { ConverterComponent } from './pages/converter/converter.component';
 import { WeatherComponent } from './pages/weather/weather.component';
 import { TaskManagerComponent } from './pages/task-manager/task-manager.component';
 import { LoginComponent } from './pages/login/login.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { LoginComponent } from './pages/login/login.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
