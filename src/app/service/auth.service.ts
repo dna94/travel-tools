@@ -8,7 +8,7 @@ import { User } from '../domain/user';
 
 export class AuthService {
 
-  private user?: User = localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")!) : null;
+  private user?: User = localStorage.getItem("email") ? JSON.parse(localStorage.getItem("email")!) : null;
   //Controlla username e password, se sono corretti li salva sia nella classe che nel local storage (return bool?)
   login(username: string, password: string): boolean {
     return true;
