@@ -1,5 +1,16 @@
 <div>
-    <label for="euro">Euro: </label>
-    <input id="euro" [(ngModel)]="euro">
+    <h2>Euro to Dollaro</h2>
+    <div>
+        <label for="euro">Euro: </label>
+        <input id="euro" type="number" [formControl]="euro" (change)="conversione()" (keyup)="conversione()">
+
+
+    </div>
+    <button (click)="plus10()">+10</button>
+    <button (click)="plus100()">+100</button>
+    <button (click)="reset()">Reset</button>
+    <div>
+
+    </div>
 </div>
-<div><span>Dollaro: </span>{{dollaro}}</div>
+<div><span>Dollaro: </span>{{dollaro | currency}}</div>

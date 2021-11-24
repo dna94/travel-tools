@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-converter',
@@ -8,19 +8,29 @@ import { FormBuilder } from '@angular/forms';
 })
 export class ConverterComponent implements OnInit {
 
-  euro: number = 0;
-  dollaro: number = this.euro * 1.13;
+  euro: FormControl = new FormControl(0)
+  dollaro: number = 0;
+  cambioEuroDollaro: number = 1.13;
 
   constructor(
   ) { }
 
-  /*
-  onClick(euro: number): number {
-    return euro * 1.13;
+  conversione(): void {
+    this.dollaro = this.euro.value * this.cambioEuroDollaro;
   }
 
-  dollaro: number = 12345; //euro * 1.13;
-*/
+  plus10(): void {
+    this.euro.setValue(this.euro.value + 10);
+    this.conversione();
+  }
+  plus100(): void {
+    this.euro.setValue(this.euro.value + 100)
+    this.conversione();
+  }
+  reset(): void {
+    this.euro.setValue(0);
+    this.conversione();
+  }
 
   ngOnInit(): void {
   }
