@@ -15,6 +15,7 @@ export class SignupComponent implements OnInit {
     surname: new FormControl('', [Validators.required]),
     email: new FormControl('', [Validators.required]),
     birthdate: new FormControl('', [Validators.required]),
+    password: new FormControl('', [Validators.required]),
   });
 
   constructor(
@@ -36,8 +37,9 @@ export class SignupComponent implements OnInit {
     let surname = this.signupForm.get('surname')?.value;
     let email = this.signupForm.get('email')?.value;
     let birthdate = this.signupForm.get('birthdate')?.value;
+    let password = this.signupForm.get('password')?.value;
 
-    this.userService.addUser({ name, surname, email, birthdate })
+    this.userService.addUser({ name, surname, email, birthdate, password })
 
   }
 

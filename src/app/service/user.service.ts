@@ -23,6 +23,13 @@ export class UserService {
   */
 
   getUserByMail(email: string): User {
-    return localStorage.getItem(email) ? JSON.parse(localStorage.getItem(email)!) : null
+    return localStorage.getItem(email) ? JSON.parse(localStorage.getItem(email)!) : null;
+  }
+
+  loginResult(email: string, password: string): boolean {
+    let user = localStorage.getItem(email) ? JSON.parse(localStorage.getItem(email)!) : null;
+    if ((user) && (user.email == email) && (user.password == password)) {
+      return true
+    } else return false
   }
 }

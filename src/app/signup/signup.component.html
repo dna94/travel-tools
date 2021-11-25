@@ -1,7 +1,8 @@
 <form [formGroup]="signupForm" (ngSubmit)="signUpFormSubmit()">
-    Nome: <input formControlName="name" type="text" placeholder="Nome">
-    Cognome: <input formControlName="surname" type="text" placeholder="Cognome">
-    e-Mail: <input formControlName="email" type="email" placeholder="e-Mail">
-    Data di nascita:<input formControlName="birthdate" type="date" placeholder="Data">
+    Nome: <input formControlName="name" type="text" placeholder="Nome" required>
+    Cognome: <input formControlName="surname" type="text" placeholder="Cognome" required>
+    e-Mail: <input formControlName="email" type="email" placeholder="e-Mail" required>
+    Data di nascita:<input formControlName="birthdate" type="date" placeholder="Data" required>
+    Password:<input formControlName="password" type="password" placeholder="password" required>
     <button type="submit">Submit</button>
 </form>
