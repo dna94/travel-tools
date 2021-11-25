@@ -17,7 +17,7 @@ export class SignupComponent implements OnInit {
   });
 
   constructor(
-    //VA IN ERRORE PER L'INTERFACCIA NEL COSTRUTTORE
+    //VA IN ERRORE PER L'INTERFACCIA NEL COSTRUTTORE (DA FARE INJECTION)
     //private user: User, 
   ) { }
 
@@ -36,7 +36,9 @@ export class SignupComponent implements OnInit {
     let email = this.signupForm.get('email')?.value;
     let birthdate = this.signupForm.get('birthdate')?.value;
 
-    localStorage.setItem(email, JSON.stringify({ name, surname, email, birthdate }))
+    localStorage.setItem(email, JSON.stringify({ name, surname, email, birthdate }));
+
+    console.log("Visualizza solo adnan2594@gmail.com", localStorage.getItem("adnan2594@gmail.com"))
 
 
   }

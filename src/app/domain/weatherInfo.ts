@@ -1,4 +1,7 @@
 export interface WeatherInfo {
     city: string;
-    temperature: number;
+    weather: string;
+    maintemp: number;
+    pressure: number;
+    humidity: number;
 }
