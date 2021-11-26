@@ -5,7 +5,6 @@
     </form>
 </div>
 
-<div *ngIf="weatherJSON">
+<div *ngIf="weatherJSON != {}">
     <pre id="json">{{weatherJSON | json}}</pre>
-    <li>{{weatherJSON | json}}</li>
 </div>
