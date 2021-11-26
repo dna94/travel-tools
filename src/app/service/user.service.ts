@@ -27,7 +27,8 @@ export class UserService {
   }
 
   loginResult(email: string, password: string): boolean {
-    let user = localStorage.getItem(email) ? JSON.parse(localStorage.getItem(email)!) : null;
+    //let user = localStorage.getItem(email) ? JSON.parse(localStorage.getItem(email)!) : null;
+    let user = this.getUserByMail(email)
     if ((user) && (user.email == email) && (user.password == password)) {
       return true
     } else return false

@@ -1,1 +1,10 @@
-<p>task-manager works!</p>
+<form [formGroup]="taskAddForm" (ngSubmit)="taskAddFormSubmit()">
+    Nome del Task: <input formControlName="name" type="text" placeholder="Nome" required>
+    Data:<input formControlName="date" type="date" placeholder="Data" required>
+    <button type="submit">Submit</button>
+</form>
+
+<div *ngFor="let task of tasks">
+    <li>Nome task: {{task.name}}</li>
+    <li>Scadenza: {{task.date}}</li>
+</div>

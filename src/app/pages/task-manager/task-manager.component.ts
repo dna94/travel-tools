@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Task } from 'src/app/domain/task';
+import { TasksService } from 'src/app/service/tasks.service';
 
 @Component({
   selector: 'app-task-manager',
@@ -7,9 +10,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TaskManagerComponent implements OnInit {
 
-  constructor() { }
+  taskAddForm = new FormGroup({
+    name: new FormControl('', [Validators.required]),
+    date: new FormControl('', [Validators.required]),
+  });
+
+  tasks!: Task[];
+
+  constructor(
+    private tasksService: TasksService
+  ) { }
+
+  taskAddFormSubmit(): void {
+    let name = this.taskAddForm.get('name')?.value;
+    let date = this.taskAddForm.get('date')?.value;
+
+    this.tasksService.upsertTask(name, date, false);
+
+    this.tasks = []; //Non svuota, da trovare il modo per refreshare svuotando la lista ogni volta
+    this.tasks = this.tasksService.getTasks();
+
+  }
 
   ngOnInit(): void {
+    //this.tasksService.FillMockTasks();
+    this.tasks = this.tasksService.getTasks();
   }
 
 }
