@@ -1,1 +1,11 @@
-<h1>Weather Reports</h1>
+<div>
+    <form [formGroup]="weatherForm" (ngSubmit)="weatherFormSubmit()">
+        City: <input formControlName="city" type="text" placeholder="city" required>
+        <button type="submit">Submit</button>
+    </form>
+</div>
+
+<div *ngIf="weatherJSON">
+    <pre id="json">{{weatherJSON | json}}</pre>
+    <li>{{weatherJSON | json}}</li>
+</div>

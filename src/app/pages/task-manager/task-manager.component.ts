@@ -27,7 +27,7 @@ export class TaskManagerComponent implements OnInit {
 
     this.tasksService.upsertTask(name, date, false);
 
-    this.tasks = []; //Non svuota, da trovare il modo per refreshare svuotando la lista ogni volta
+    this.tasks = []; //Non svuota, da trovare il modo per refreshare svuotando la lista ogni volta (dal service)
     this.tasks = this.tasksService.getTasks();
 
   }
