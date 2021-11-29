@@ -16,16 +16,20 @@ export class TasksService {
   //Will use the name of the task as the key for the local storage
   upsertTask(name: string, date: Date, done: boolean): void {
     let taskname = localStorage.getItem(name) ? JSON.parse(localStorage.getItem(name)!) : null;
-    if (taskname) localStorage.removeItem(name);
+    console.log("Taskname: ", taskname)
+    if (taskname != null) {
+      localStorage.removeItem(name);
+    } else {
+      this.keyList.push(name);
+    }
     localStorage.setItem(name, JSON.stringify({ name, date, done }))
-
-    this.keyList.push(name);
   }
 
   removeTask(name: string): void {
   }
 
   getTasks(): Task[] {
+    this.tasks = [];
     this.keyList.map(key => {
       this.tasks.push(localStorage.getItem(key) ? JSON.parse(localStorage.getItem(key)!) : null)
     })

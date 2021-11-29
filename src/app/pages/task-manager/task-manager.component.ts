@@ -15,7 +15,7 @@ export class TaskManagerComponent implements OnInit {
     date: new FormControl('', [Validators.required]),
   });
 
-  tasks!: Task[];
+  tasks: Task[] = [];
 
   constructor(
     private tasksService: TasksService

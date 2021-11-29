@@ -3,7 +3,10 @@
     Data:<input formControlName="date" type="date" placeholder="Data" required>
     <button type="submit">Submit</button>
 </form>
-
+<div>
+    <h3>Per modificare un task basta scrivere il nome del task e cambiare la data (upsert con chiave al nome del task)
+    </h3>
+</div>
 <div *ngFor="let task of tasks">
     <li>Nome task: {{task.name}}</li>
     <li>Scadenza: {{task.date}}</li>

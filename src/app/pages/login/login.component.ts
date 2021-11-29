@@ -40,6 +40,9 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
 
+    localStorage.clear();
+    console.log("Local Storage Cleared");
+
     localStorage.setItem("isLoggedIn", "false")
 
     this.userService.addUser({

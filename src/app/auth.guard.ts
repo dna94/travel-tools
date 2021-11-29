@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from './service/auth.service';
 import { UserService } from './service/user.service';
@@ -11,6 +11,7 @@ export class AuthGuard implements CanActivate {
 
   constructor(
     private auth: AuthService,
+    private router: Router
   ) { }
 
   isLogged: boolean = false;
@@ -25,6 +26,7 @@ export class AuthGuard implements CanActivate {
       return true;
     }
     window.alert("Non sei loggato, logga prima di navigare in questa route. ");
+    this.router.navigateByUrl('/login')
     return false;
   }
 
