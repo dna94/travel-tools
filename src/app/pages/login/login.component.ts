@@ -23,11 +23,33 @@ export class LoginComponent implements OnInit {
     let password = this.loginForm.get('password')?.value;
 
     //Chiamata al service, input mail e pass, output bool 
+
     let success = this.userService.loginResult(email, password)
     console.log(success)
+
+    if (success == true) {
+      window.alert("Benvenuto, procedi navigando tramite i route sottostanti: ")
+    }
+
+    if (success == false) {
+      window.alert("Credenziali non valide, ripetere con credenziali valide")
+    }
+
+
   }
 
   ngOnInit(): void {
+
+    localStorage.setItem("isLoggedIn", "false")
+
+    this.userService.addUser({
+      name: "admin",
+      surname: "admin",
+      email: "admin@admin.com",
+      birthdate: new Date(),
+      password: "admin"
+    })
+
   }
 
 }

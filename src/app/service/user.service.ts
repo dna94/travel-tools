@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { User } from '../domain/user';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,8 @@ export class UserService {
   users: User[] = []
   user!: User
 
-  constructor() { }
+  constructor(
+  ) { }
 
   addUser(user: User): void {
     localStorage.setItem(user.email, JSON.stringify(user));
@@ -30,6 +32,7 @@ export class UserService {
     //let user = localStorage.getItem(email) ? JSON.parse(localStorage.getItem(email)!) : null;
     let user = this.getUserByMail(email)
     if ((user) && (user.email == email) && (user.password == password)) {
+      localStorage.setItem("isLoggedIn", "true")
       return true
     } else return false
   }

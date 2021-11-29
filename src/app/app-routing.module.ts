@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './auth.guard';
 import { ConverterComponent } from './pages/converter/converter.component';
 import { LoginComponent } from './pages/login/login.component';
 import { TaskManagerComponent } from './pages/task-manager/task-manager.component';
@@ -8,27 +9,31 @@ import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [{
   component: ConverterComponent,
-  path: 'converter'
+  path: 'converter',
+  canActivate: [AuthGuard]
 },
 {
   component: WeatherComponent,
-  path: 'weather'
+  path: 'weather',
+  canActivate: [AuthGuard]
 },
 {
   component: TaskManagerComponent,
-  path: 'task-manager'
+  path: 'task-manager',
+  canActivate: [AuthGuard]
 },
 {
   component: SignupComponent,
-  path: 'signup'
+  path: 'signup',
+  canActivate: [AuthGuard]
 },
 {
   component: LoginComponent,
-  path: 'login'
+  path: 'login',
 },
 {
   redirectTo: 'login',
-  path: '**'
+  path: '**',
 },
 
 ];
