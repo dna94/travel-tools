@@ -24,8 +24,9 @@ export class LoginComponent implements OnInit {
 
     //Chiamata al service, input mail e pass, output bool 
 
+
     let success = this.userService.loginResult(email, password)
-    console.log(success)
+    //console.log(success)
 
     if (success == true) {
       window.alert("Benvenuto, procedi navigando tramite i route sottostanti: ")
@@ -40,8 +41,10 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
 
+
     localStorage.clear();
-    console.log("Local Storage Cleared");
+    //console.log("Local Storage Cleared");
+
 
     localStorage.setItem("isLoggedIn", "false")
 

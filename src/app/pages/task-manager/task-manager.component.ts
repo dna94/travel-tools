@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, AfterViewInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Task } from 'src/app/domain/task';
 import { TasksService } from 'src/app/service/tasks.service';
@@ -36,5 +36,16 @@ export class TaskManagerComponent implements OnInit {
     //this.tasksService.FillMockTasks();
     this.tasks = this.tasksService.getTasks();
   }
+
+  /*
+  ngOnChanges(): void {
+    this.tasks = this.tasksService.getTasks();
+  }
+
+  ngAfterViewInit(): void {
+    this.tasks = this.tasksService.getTasks();
+  }
+  */
+
 
 }

@@ -21,8 +21,12 @@ export class TasksService {
       localStorage.removeItem(name);
     } else {
       this.keyList.push(name);
+      //Make Keylist persistent
+      localStorage.removeItem("keylist");
+      localStorage.setItem("keylist", JSON.stringify(this.keyList));
     }
     localStorage.setItem(name, JSON.stringify({ name, date, done }))
+    this.getTasks();
   }
 
   removeTask(name: string): void {
@@ -30,9 +34,16 @@ export class TasksService {
 
   getTasks(): Task[] {
     this.tasks = [];
-    this.keyList.map(key => {
-      this.tasks.push(localStorage.getItem(key) ? JSON.parse(localStorage.getItem(key)!) : null)
-    })
+    this.keyList = [];
+    //this.tasks = JSON.parse(localStorage.getItem("keylist")!);
+    this.keyList = localStorage.getItem("keylist") ? JSON.parse(localStorage.getItem("keylist")!) : [];
+    console.log("Keylist Object: ", this.keyList);
+    if (this.keyList) {
+      this.keyList.map(key => {
+        this.tasks.push(localStorage.getItem(key) ? JSON.parse(localStorage.getItem(key)!) : null)
+      })
+    }
+
     return this.tasks;
   }
 
