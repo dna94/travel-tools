@@ -10,4 +10,6 @@
 <div *ngFor="let task of tasks">
     <li>Nome task: {{task.name}}</li>
     <li>Scadenza: {{task.date}}</li>
+    <button (click)="removeTask(task)">Rimuovi Task</button>
+    <br><br><br>
 </div>

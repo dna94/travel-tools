@@ -16,6 +16,7 @@ export class TaskManagerComponent implements OnInit {
   });
 
   tasks: Task[] = [];
+  task!: Task;
 
   constructor(
     private tasksService: TasksService
@@ -29,6 +30,15 @@ export class TaskManagerComponent implements OnInit {
 
     this.tasks = []; //Non svuota, da trovare il modo per refreshare svuotando la lista ogni volta (dal service)
     this.tasks = this.tasksService.getTasks();
+  }
+
+  removeTask(task: Task): void {
+
+    this.tasks.map(tsk => {
+      if (tsk.name == task.name) {
+
+      }
+    })
 
   }
 

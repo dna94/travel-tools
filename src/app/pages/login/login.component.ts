@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
 
 
-    localStorage.clear();
+    //localStorage.clear();
     //console.log("Local Storage Cleared");
 
 
