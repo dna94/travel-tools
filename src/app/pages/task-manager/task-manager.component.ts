@@ -33,13 +33,8 @@ export class TaskManagerComponent implements OnInit {
   }
 
   removeTask(task: Task): void {
-
-    this.tasks.map(tsk => {
-      if (tsk.name == task.name) {
-
-      }
-    })
-
+    this.tasksService.removeTask(task);
+    this.tasks = this.tasksService.getTasks();
   }
 
   ngOnInit(): void {

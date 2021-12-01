@@ -29,7 +29,15 @@ export class TasksService {
     this.getTasks();
   }
 
-  removeTask(name: string): void {
+  removeTask(task: Task): void {
+
+    let removeIndex = this.keyList.indexOf(task.name);
+    this.keyList.splice(removeIndex, 1);
+
+    localStorage.removeItem("keylist");
+    localStorage.setItem("keylist", JSON.stringify(this.keyList));
+
+    localStorage.removeItem(task.name);
   }
 
   getTasks(): Task[] {

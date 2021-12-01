@@ -39,12 +39,13 @@ export class LoginComponent implements OnInit {
 
   }
 
+  resetButton() {
+    localStorage.clear();
+    console.log("Local Storage Cleared");
+
+  }
+
   ngOnInit(): void {
-
-
-    //localStorage.clear();
-    //console.log("Local Storage Cleared");
-
 
     localStorage.setItem("isLoggedIn", "false")
 
